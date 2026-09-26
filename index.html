@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0b1220">
+  <title>Universal Scientific Calculator</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <div class="brand"><div class="brand-mark">∑</div><div><strong>Universal Calculator</strong><span>Global calculation platform</span></div></div>
+      <div class="header-actions">
+        <label class="search-wrap" aria-label="Search calculators"><span>⌕</span><input id="calculatorSearch" type="search" placeholder="Search calculators"></label>
+        <select id="languageSelect" class="locale-select" aria-label="Language"><option value="en">EN</option><option value="hi">हिं</option><option value="es">ES</option><option value="fr">FR</option><option value="de">DE</option><option value="pt">PT</option><option value="ar">ع</option><option value="zh">中</option><option value="ja">日</option><option value="ko">한</option><option value="ru">РУ</option><option value="it">IT</option><option value="nl">NL</option><option value="tr">TR</option><option value="id">ID</option></select>
+        <select id="numberLocaleSelect" class="locale-select" aria-label="Number format"><option value="en-US">1,234.56</option><option value="de-DE">1.234,56</option><option value="en-IN">12,34,567.89</option><option value="fr-FR">1 234,56</option></select>
+        <button class="mode-toggle" id="modeToggle" title="Switch between simple and pro mode">Simple</button>
+        <button class="icon-btn" id="settingsToggle" title="Precision settings">⚙</button>
+        <button class="icon-btn" id="themeToggle" title="Toggle contrast">◐</button>
+      </div>
+    </header>
+
+    <div class="mobile-toolbar"><button class="text-btn" id="menuToggle">☰ Categories</button><span id="activeCategoryLabel">Core calculator</span></div>
+    <div class="layout">
+      <aside class="sidebar" id="sidebar">
+        <div class="sidebar-heading"><span>WORKSPACE</span><button id="favoriteCurrent" class="star-btn" title="Favorite current calculator">☆</button></div>
+        <button class="nav-item active" data-calculator="core"><span>⌘</span> Core calculator</button>
+        <button class="nav-item" data-calculator="scientific"><span>∠</span> Scientific</button>
+        <button class="nav-item" data-calculator="algebra"><span>ƒ</span> Algebra & equations</button>
+        <button class="nav-item" data-calculator="matrix"><span>▦</span> Matrix</button>
+        <button class="nav-item" data-calculator="statistics"><span>σ</span> Statistics</button>
+        <button class="nav-item" data-calculator="probability"><span>◉</span> Probability</button>
+        <button class="nav-item" data-calculator="geometry"><span>△</span> Geometry</button>
+        <button class="nav-item" data-calculator="trigonometry"><span>∿</span> Trigonometry</button>
+        <button class="nav-item" data-calculator="units"><span>⇄</span> Unit converter</button>
+        <button class="nav-item" data-calculator="finance"><span>¤</span> Finance</button>
+        <button class="nav-item" data-calculator="datetime"><span>◷</span> Date & time</button>
+        <button class="nav-item" data-calculator="engineering"><span>⚡</span> Engineering</button>
+        <button class="nav-item" data-calculator="programmer"><span>01</span> Programmer</button>
+        <button class="nav-item" data-calculator="complex"><span>ℂ</span> Complex numbers</button>
+        <button class="nav-item" data-calculator="calculus"><span>∫</span> Calculus</button>
+        <button class="nav-item" data-calculator="graph"><span>⌁</span> Graphing</button>
+        <div class="sidebar-bottom"><div class="mini-label">RECENT</div><div id="recentList" class="recent-list"></div></div>
+      </aside>
+
+      <main class="main-content">
+        <section class="hero-row"><div><p class="eyebrow">PRECISION WORKSPACE</p><h1 id="pageTitle">Core calculator</h1><p id="pageDescription">Fast, safe arithmetic with a full expression engine.</p></div><div class="status-pill"><span class="status-dot"></span> Local calculation</div></section>
+        <section class="smart-command">
+          <div class="smart-heading"><div><p class="eyebrow">SMART COMMAND CENTER</p><h2>What do you want to calculate?</h2></div><span class="smart-badge">Intent-aware</span></div>
+          <div class="command-row"><input id="smartInput" aria-label="What do you want to calculate?" placeholder="Try “calculate EMI for 5 lakh at 8.5% for 5 years” or “area of a circle radius 10”"><button class="primary-btn" id="smartRun">Calculate</button></div>
+          <div id="smartSuggestions" class="smart-suggestions"></div>
+        </section>
+        <section class="quick-grid" aria-label="Quick calculators">
+          <button class="quick-card" data-calculator="core"><span>⌘</span><strong>Quick Calculator</strong><small>Arithmetic & expressions</small></button>
+          <button class="quick-card" data-calculator="scientific"><span>∠</span><strong>Scientific</strong><small>Functions & angle modes</small></button>
+          <button class="quick-card" data-calculator="units"><span>⇄</span><strong>Unit Converter</strong><small>Length, speed, temperature</small></button>
+          <button class="quick-card" data-calculator="finance"><span>¤</span><strong>Finance</strong><small>EMI & interest</small></button>
+          <button class="quick-card" data-calculator="statistics"><span>σ</span><strong>Statistics</strong><small>Analyze a data set</small></button>
+          <button class="quick-card" data-calculator="engineering"><span>◈</span><strong>Physics</strong><small>Mechanics & energy</small></button>
+          <button class="quick-card" data-calculator="engineering"><span>⚡</span><strong>Engineering</strong><small>Ohm’s law & mechanics</small></button>
+          <button class="quick-card" data-calculator="networking"><span>⌁</span><strong>Networking</strong><small>IPv4 subnet tools</small></button>
+          <button class="quick-card" data-calculator="programmer"><span>01</span><strong>Programming</strong><small>Number bases</small></button>
+          <button class="quick-card" data-calculator="chemistry"><span>⚗</span><strong>Chemistry</strong><small>Moles & molarity</small></button>
+        </section>
+        <section id="settingsPanel" class="settings-panel" hidden>
+          <label>Display precision <select id="precisionSelect"><option value="10">Up to 10 decimals</option><option value="6">Up to 6 decimals</option><option value="4">Up to 4 decimals</option><option value="scientific">Scientific notation</option></select></label>
+          <label>Region <select id="countrySelect"><option value="US">United States</option><option value="IN">India</option><option value="GB">United Kingdom</option><option value="DE">Germany</option><option value="FR">France</option><option value="JP">Japan</option><option value="BR">Brazil</option><option value="AE">United Arab Emirates</option></select></label>
+          <button class="text-btn" id="printCalculation">Print current view</button>
+        </section>
+        <div id="calculatorView"></div>
+        <section class="discovery-grid">
+          <div class="discovery-card"><div class="panel-title"><div><span class="eyebrow">REFERENCE</span><h2>Formula library</h2></div><button class="text-btn" data-open-discovery="formulas">Browse</button></div><input class="library-search" id="formulaSearch" placeholder="Search force, circle, EMI, Ohm…"><div id="formulaResults"></div></div>
+          <div class="discovery-card"><div class="panel-title"><div><span class="eyebrow">CONSTANTS</span><h2>Scientific constants</h2></div><button class="text-btn" data-open-discovery="constants">Browse</button></div><input class="library-search" id="constantSearch" placeholder="Search c, gravity, Planck…"><div id="constantResults"></div></div>
+        </section>
+        <section class="calculation-notes form-card">
+          <div class="panel-title"><div><span class="eyebrow">WORKSPACE</span><h2>Calculation document</h2></div><button class="text-btn" id="clearNotes">Clear</button></div>
+          <input id="projectName" class="library-search" placeholder="Project or calculation sheet name">
+          <textarea id="calculationNotes" aria-label="Calculation notes" class="textarea" rows="3" placeholder="Add notes, assumptions, or a reproducible explanation…"></textarea>
+          <div class="note-actions"><button class="secondary-btn" id="saveNote">Save snapshot</button><button class="secondary-btn" id="exportJson">Export JSON</button><button class="secondary-btn" id="exportText">Export TXT</button></div>
+        </section>
+      </main>
+
+      <aside class="history-panel">
+        <div class="panel-title"><div><span class="eyebrow">SESSION</span><h2>History</h2></div><div><button class="text-btn" id="exportHistory">Export</button><button class="text-btn danger" id="clearHistory">Clear all</button></div></div>
+        <input class="history-search" id="historySearch" placeholder="Search history…">
+        <div id="historyList" class="history-list"><div class="empty-state">Your calculations will appear here.</div></div>
+        <div class="tip-card"><span class="tip-icon">⌨</span><div><strong>Keyboard ready</strong><p>Type expressions, press Enter to calculate, Esc to clear.</p></div></div>
+      </aside>
+    </div>
+    <footer><span>Universal Calculator</span><span>All calculations run locally in your browser</span><span>v2.0 · Safe local calculation platform</span></footer>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
