@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://himanshu09988.github.io/universal-scientific-calculator/sitemap.xml
