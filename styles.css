@@ -146,9 +146,25 @@ html,body{
 .sidebar .suggestion{
   padding:5px 7px;
 }
+.back-btn{
+  align-self:flex-start;
+  background:var(--surface-2);
+  border:1px solid var(--line);
+  border-radius:8px;
+  color:var(--accent);
+  padding:8px 11px;
+  white-space:nowrap;
+}
+.back-btn:hover{
+  background:var(--surface-3);
+  border-color:var(--accent);
+}
 
 @media (max-width:700px){
   .sidebar.open .smart-command{
     margin-top:22px;
+  }
+  .back-btn{
+    padding:7px 9px;
   }
 }
