@@ -75,6 +75,11 @@
         <button class="nav-item" data-calculator="calculus"><span>∫</span> Calculus</button>
         <button class="nav-item" data-calculator="graph"><span>⌁</span> Graphing</button>
         <div class="sidebar-bottom"><div class="mini-label">RECENT</div><div id="recentList" class="recent-list"></div></div>
+        <section class="smart-command" aria-labelledby="smart-command-title">
+          <div class="smart-heading"><div><p class="eyebrow">SMART COMMAND CENTER</p><h2 id="smart-command-title">What do you want to calculate?</h2></div><span class="smart-badge">Intent-aware</span></div>
+          <div class="command-row"><input id="smartInput" aria-label="What do you want to calculate?" placeholder="Try “calculate EMI for 5 lakh at 8.5% for 5 years” or “area of a circle radius 10”"><button class="primary-btn" id="smartRun">Calculate</button></div>
+          <div id="smartSuggestions" class="smart-suggestions"></div>
+        </section>
       </aside>
 
       <main class="main-content">
@@ -82,11 +87,6 @@
         <section class="form-card seo-intro" aria-labelledby="calculator-intro-title">
           <h2 id="calculator-intro-title">One calculator for everyday and advanced calculations</h2>
           <p>This free scientific calculator helps with mathematics, trigonometry, algebra, and statistics in one convenient workspace. Use it for unit conversion, engineering calculations, finance calculations, and everyday calculations, with results processed locally in your browser.</p>
-        </section>
-        <section class="smart-command">
-          <div class="smart-heading"><div><p class="eyebrow">SMART COMMAND CENTER</p><h2>What do you want to calculate?</h2></div><span class="smart-badge">Intent-aware</span></div>
-          <div class="command-row"><input id="smartInput" aria-label="What do you want to calculate?" placeholder="Try “calculate EMI for 5 lakh at 8.5% for 5 years” or “area of a circle radius 10”"><button class="primary-btn" id="smartRun">Calculate</button></div>
-          <div id="smartSuggestions" class="smart-suggestions"></div>
         </section>
         <section class="quick-grid" aria-label="Quick calculators">
           <button class="quick-card" data-calculator="core"><span>⌘</span><strong>Quick Calculator</strong><small>Arithmetic & expressions</small></button>
@@ -125,7 +125,7 @@
         <div class="tip-card"><span class="tip-icon">⌨</span><div><strong>Keyboard ready</strong><p>Type expressions, press Enter to calculate, Esc to clear.</p></div></div>
       </aside>
     </div>
-    <footer><span>Universal Calculator</span><span>All calculations run locally in your browser</span><span>v2.0 · Safe local calculation platform</span></footer>
+    <footer><span>v2.0 · Safe local calculation platform</span></footer>
   </div>
   <script src="app.js"></script>
 </body>
